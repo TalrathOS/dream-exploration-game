@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cgbs3jwoyxoog"]
+
+[sub_resource type="GDScript" id="GDScript_maaha"]
+resource_name = "TimedVisibilityTrigger"
+script/source = "extends Node3D
+
+@export var targets: Array[Node]
+@export var state: bool
+@export var timer: float
+@export var paused: bool
+
+func _ready() -> void:
+	if paused:
+		visible = false
+func _process(delta: float) -> void:
+	if timer < 0:
+		for thing in targets:
+			thing.visible = state
+		queue_free()
+	elif visible:
+		timer -= delta
+"
+
+[node name="TimedVisibilityTrigger" type="Node3D" unique_id=1065417993]
+script = SubResource("GDScript_maaha")

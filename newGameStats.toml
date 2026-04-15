@@ -1,0 +1,10 @@
+[playerStats]
+ maxSpeed = 1
+ maxAcceleration = 0
+ maxJumpForce = 0
+ gravity = 0
+ airAcceleration = 0.5
+
+ canHighJump = false
+ canCrouch = false
+ canLongJump = false

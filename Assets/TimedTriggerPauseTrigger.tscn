@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b33nqb5jn8u1o"]
+
+[sub_resource type="GDScript" id="GDScript_maaha"]
+resource_name = "TimedTriggerPauseTrigger"
+script/source = "extends Area3D
+
+@export var target: Node3D
+@export var pauseState: bool
+@export var reusable: bool
+
+func _ready() -> void:
+	$MeshInstance3D.free()
+
+func _on_body_entered(body: Node3D) -> void:
+	target.paused = pauseState
+	print(str(target) + \" pause has been set to \" + str(pauseState))
+	if !reusable:
+		queue_free()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_maaha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80b2g"]
+albedo_color = Color(0.98028654, 0.65805537, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h74hi"]
+material = SubResource("StandardMaterial3D_80b2g")
+
+[node name="TimedTriggerToggleTrigger" type="Area3D" unique_id=2112542331]
+collision_layer = 0
+collision_mask = 2
+script = SubResource("GDScript_maaha")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1451682649]
+shape = SubResource("BoxShape3D_maaha")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1845446078]
+visible = false
+mesh = SubResource("BoxMesh_h74hi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
