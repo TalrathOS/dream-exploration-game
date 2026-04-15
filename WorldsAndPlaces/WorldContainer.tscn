@@ -1,3 +1,27 @@
 [gd_scene format=3 uid="uid://cymael0h7j8d2"]
 
+[ext_resource type="Script" uid="uid://c8dpap8u6gqvh" path="res://Scripts/playerBaseFunction.gd" id="1_55pka"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6a0ap"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_au16o"]
+
 [node name="WorldContainer" type="Node3D" unique_id=3329002]
+
+[node name="Tutorial" type="Node3D" parent="." unique_id=374945472]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tutorial" unique_id=1065086845]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tutorial/StaticBody3D" unique_id=1924019756]
+shape = SubResource("BoxShape3D_6a0ap")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Tutorial/StaticBody3D" unique_id=724183814]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1993993600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0194461, 0)
+collision_layer = 3
+script = ExtResource("1_55pka")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1499551648]
+shape = SubResource("CapsuleShape3D_au16o")

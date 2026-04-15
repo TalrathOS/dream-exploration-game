@@ -1,6 +1,6 @@
 [playerStats]
- maxSpeed = 1
- maxAcceleration = 0
+ maxSpeed = 3
+ maxAcceleration = 3
  maxJumpForce = 0
  gravity = 0
  airAcceleration = 0.5

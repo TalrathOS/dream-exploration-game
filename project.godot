@@ -17,10 +17,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 TOML="*uid://c3lbk3rbbf27m"
+Globals="*uid://dub5xtcg2korr"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GitGodot/plugin.cfg", "res://addons/not_full_toml_yet/plugin.cfg")
+enabled=PackedStringArray("res://addons/not_full_toml_yet/plugin.cfg")
 
 [physics]
 
